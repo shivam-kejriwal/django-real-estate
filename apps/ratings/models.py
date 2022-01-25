@@ -42,3 +42,4 @@ class Rating(TimeStampUUIDModel):
 
     def __str__(self):
         return f"{self.agent} rated as {self.rating}"
+    
