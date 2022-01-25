@@ -44,3 +44,4 @@ class Rating(TimeStampUUIDModel):
         return f"{self.agent} rated as {self.rating}"
     
     
+    
