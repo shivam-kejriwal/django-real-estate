@@ -1,6 +1,10 @@
+import logging
+import logging.config
+from datetime import timedelta
 from pathlib import Path
 
 import environ
+from django.utils.log import DEFAULT_LOGGING
 
 env = environ.Env(DEBUG=(bool, False))
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -144,7 +148,6 @@ REST_FRAMEWORK = {
     ),
 }
 
-from datetime import timedelta
 
 SIMPLE_JWT = {
     "AUTH_HEADER_TYPES": (
@@ -179,10 +182,6 @@ DJOSER = {
     },
 }
 
-import logging
-import logging.config
-
-from django.utils.log import DEFAULT_LOGGING
 
 logger = logging.getLogger(__name__)
 
