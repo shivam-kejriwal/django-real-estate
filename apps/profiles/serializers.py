@@ -38,25 +38,26 @@ class ProfileSerializer(serializers.ModelSerializer):
             "reviews",
         ]
 
-    def get_full_name(self , obj):
+    def get_full_name(self, obj):
         first_name = obj.user.first_name.title()
         last_name = obj.user.last_name.title()
         return f"{first_name} {last_name}"
 
-    def get_reviews(self,obj):
+    def get_reviews(self, obj):
         reviews = obj.agent_review.all()
-        serializer = RatingSerializer(reviews , many= True)
+        serializer = RatingSerializer(reviews, many=True)
         return serializer.data
 
     def to_representation(self, instance):
-        representation=  super().to_representation(instance)
+        representation = super().to_representation(instance)
         if instance.top_agent:
             representation["top_agent"] = True
 
         return representation
 
+
 class UpdateProfileSerializer(serializers.ModelSerializer):
-    country = CountryField(name_only = True)
+    country = CountryField(name_only=True)
 
     class Meta:
         model = Profile
@@ -71,11 +72,10 @@ class UpdateProfileSerializer(serializers.ModelSerializer):
             "is_buyer",
             "is_seller",
             "is_agent",
-
         ]
-    
+
     def to_representation(self, instance):
-        representation=  super().to_representation(instance)
+        representation = super().to_representation(instance)
         if instance.top_agent:
             representation["top_agent"] = True
 

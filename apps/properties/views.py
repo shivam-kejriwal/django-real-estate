@@ -160,7 +160,7 @@ def delete_property_api_view(request, slug):
             data["success"] = "Deletion was successful"
         else:
             data["failure"] = "Deletion failed"
-        return Response(data = data)
+        return Response(data=data)
 
 
 @api_view(["POST"])
